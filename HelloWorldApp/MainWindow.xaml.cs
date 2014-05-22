@@ -29,5 +29,10 @@ namespace HelloWorldApp
         {
             textBox1.Text = "Hello WPF!";
         }
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
     }
 }
