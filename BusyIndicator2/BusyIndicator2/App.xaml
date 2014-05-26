@@ -1,0 +1,23 @@
+﻿<Application x:Class="BusyIndicator.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:busyIndicator="clr-namespace:BusyIndicator"
+             Startup="App_OnStartup">
+    <Application.Resources>
+
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="Converters.xaml" />
+                
+                <ResourceDictionary Source="Styles.xaml" />
+
+                <ResourceDictionary Source="Resources.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
