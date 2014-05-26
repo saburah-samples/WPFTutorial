@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Windows Desktop
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWpf", "HelloWorldApp\HelloWpf.csproj", "{BB630166-D62D-4B03-ABC5-26833ECE6798}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWpf", "HelloWpf\HelloWpf.csproj", "{BB630166-D62D-4B03-ABC5-26833ECE6798}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseIt", "ExpenseIt\ExpenseIt.csproj", "{323C201D-8D83-45F5-8686-9038912F9756}"
 EndProject
