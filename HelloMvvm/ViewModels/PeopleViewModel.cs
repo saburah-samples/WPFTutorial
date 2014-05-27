@@ -1,4 +1,5 @@
-﻿using HelloMvvm.Models;
+﻿using HelloMvvm.Helpers;
+using HelloMvvm.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,6 +12,8 @@ namespace HelloMvvm.ViewModels
 {
     public class PeopleViewModel: ViewModel
     {
+        private static log4net.ILog log = log4net.LogManager.GetLogger(typeof(PeopleViewModel));
+
         public PeopleViewModel()
         {
             People = new ObservableCollection<Person>()
@@ -54,6 +57,8 @@ namespace HelloMvvm.ViewModels
             else
             {
                 MessageBox.Show("parameter == null");
+                Logger.Info("AddPerson");
+                log.Debug("AddPerson");
             }
         }
     }
