@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8c768879-d553-4b16-a7c8-905c7614732f}</ProjectGuid>
+    <ProjectGuid>{8C768879-D553-4B16-A7C8-905C7614732F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <DefaultClrNameSpace>xamlSpinnersWPF</DefaultClrNameSpace>
@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ProgressRing.xaml.cs">
+      <DependentUpon>ProgressRing.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ucSpinnerApple.xaml.cs">
       <DependentUpon>ucSpinnerApple.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ProgressRing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ucSpinnerApple.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
