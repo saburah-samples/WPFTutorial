@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7e119c59-937a-48a0-9e47-9cc24fa7ceb8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8090/RollFormingFactoryService/ShiftTaskService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ShiftTaskService.xsd" MetadataType="Schema" ID="f4b34c8b-84e1-4176-884d-5b1dc6f5fc87" SourceId="1" SourceUrl="http://localhost:8090/RollFormingFactoryService/ShiftTaskService?xsd=xsd3" />
+    <MetadataFile FileName="ShiftTaskService1.xsd" MetadataType="Schema" ID="ff317b32-1f5e-4bbf-9a95-35392e224f36" SourceId="1" SourceUrl="http://localhost:8090/RollFormingFactoryService/ShiftTaskService?xsd=xsd2" />
+    <MetadataFile FileName="ShiftTaskService2.xsd" MetadataType="Schema" ID="a2cdafe2-8449-4560-8073-cabf667fd313" SourceId="1" SourceUrl="http://localhost:8090/RollFormingFactoryService/ShiftTaskService?xsd=xsd1" />
+    <MetadataFile FileName="ShiftTaskService3.xsd" MetadataType="Schema" ID="714a32b9-045b-4bbd-a512-0194e3b196d4" SourceId="1" SourceUrl="http://localhost:8090/RollFormingFactoryService/ShiftTaskService?xsd=xsd0" />
+    <MetadataFile FileName="ShiftTaskService.wsdl" MetadataType="Wsdl" ID="ebe17516-ca88-4c87-846c-01bafd7a9cad" SourceId="1" SourceUrl="http://localhost:8090/RollFormingFactoryService/ShiftTaskService?wsdl" />
+    <MetadataFile FileName="ShiftTaskService.disco" MetadataType="Disco" ID="a8c90475-3038-412a-960d-b68d5e4e4d69" SourceId="1" SourceUrl="http://localhost:8090/RollFormingFactoryService/ShiftTaskService?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

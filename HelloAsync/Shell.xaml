@@ -1,0 +1,44 @@
+﻿<Window x:Class="HelloAsync.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:HelloAsync"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <local:ShellViewModel x:Key="ShellViewModel"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+        <DataTemplate x:Key="CommandsTemplate">
+            <ItemsControl ItemsSource="{Binding Path=Commands}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Command="{Binding Command}" Content="{Binding DisplayName}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </DataTemplate>
+        
+    </Window.Resources>
+    
+    <Grid DataContext="{DynamicResource ShellViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <ItemsControl ItemsSource="{Binding Commands}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Command="{Binding Command}" Content="{Binding DisplayName}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <ProgressBar Grid.Row="1" 
+                     IsIndeterminate="True" 
+                     Visibility="{Binding IsBusy, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}"/>
+    </Grid>
+</Window>

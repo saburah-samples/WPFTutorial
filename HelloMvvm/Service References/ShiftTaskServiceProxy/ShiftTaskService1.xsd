@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RollFormingFactoryLibrary" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RollFormingFactoryLibrary" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8090/RollFormingFactoryService/ShiftTaskService?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Roles" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="UserCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfShiftTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShiftTask" nillable="true" type="tns:ShiftTask" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShiftTask" nillable="true" type="tns:ArrayOfShiftTask" />
+  <xs:complexType name="ShiftTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsAdditional" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LineCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Orders" nillable="true" type="tns:ArrayOfProductionOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShiftTask" nillable="true" type="tns:ShiftTask" />
+  <xs:complexType name="ArrayOfProductionOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductionOrder" nillable="true" type="tns:ProductionOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductionOrder" nillable="true" type="tns:ArrayOfProductionOrder" />
+  <xs:complexType name="ProductionOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfRollFormingProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductionOrder" nillable="true" type="tns:ProductionOrder" />
+  <xs:complexType name="ArrayOfRollFormingProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RollFormingProduct" nillable="true" type="tns:RollFormingProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRollFormingProduct" nillable="true" type="tns:ArrayOfRollFormingProduct" />
+  <xs:complexType name="RollFormingProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Coils" nillable="true" type="tns:ArrayOfRolledSteelCoil" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Package" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Position" type="xs:int" />
+      <xs:element minOccurs="0" name="SheetCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SheetLength" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RollFormingProduct" nillable="true" type="tns:RollFormingProduct" />
+  <xs:complexType name="ArrayOfRolledSteelCoil">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RolledSteelCoil" nillable="true" type="tns:RolledSteelCoil" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRolledSteelCoil" nillable="true" type="tns:ArrayOfRolledSteelCoil" />
+  <xs:complexType name="RolledSteelCoil">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Specification" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SteelDepth" type="xs:double" />
+      <xs:element minOccurs="0" name="SuplierCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RolledSteelCoil" nillable="true" type="tns:RolledSteelCoil" />
+</xs:schema>
