@@ -9,21 +9,30 @@ namespace HelloEF.ViewModels
 {
     public class CustomerViewModel : ViewModelBase
     {
-        private List<Customer> _customers;
+        private IEnumerable<Customer> _customers;
         private Customer _currentCustomer;
         private CustomerRepository _repository;
 
         public CustomerViewModel()
         {
-            _repository = new CustomerRepository();
-            _customers = _repository.GetCustomers();
+            _repository = new CustomerRepository(); //TODO: here need instantiate repository
+            _customers = _repository.FindAll();
 
             WireCommands();
         }
 
         private void WireCommands()
         {
+            // TODO: implement AddCustomerCommand
+            AddCustomerCommand = new RelayCommand(AddCustomer);
+            AddCustomerCommand.IsEnabled = true;
             UpdateCustomerCommand = new RelayCommand(UpdateCustomer);
+        }
+
+        public RelayCommand AddCustomerCommand
+        {
+            get;
+            private set;
         }
 
         public RelayCommand UpdateCustomerCommand
@@ -32,7 +41,7 @@ namespace HelloEF.ViewModels
             private set;
         }
 
-        public List<Customer> Customers
+        public IEnumerable<Customer> Customers
         {
             get { return _customers; }
             set { _customers = value; }
@@ -56,9 +65,14 @@ namespace HelloEF.ViewModels
             }
         }
 
+        public void AddCustomer()
+        {
+            _repository.Add(CurrentCustomer);
+        }
+
         public void UpdateCustomer()
         {
-            _repository.UpdateCustomer(CurrentCustomer);
+            _repository.Update(CurrentCustomer);
         }
     }
 }

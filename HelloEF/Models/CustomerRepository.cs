@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace HelloEF.Models
 {
-    public class CustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
-        private List<Customer> _customers;
+        private List<Customer> customers;
 
         public CustomerRepository()
         {
-            _customers = new List<Customer>
+            customers = new List<Customer>
             {
                 new Customer(){ CustomerID = 1, FullName="Dana Birkby", Phone="394-555-0181"},
                 new Customer(){ CustomerID = 2, FullName="Adriana Giorgi", Phone="117-555-0119"},
@@ -20,15 +20,30 @@ namespace HelloEF.Models
             };
         }
 
-        public List<Customer> GetCustomers()
+        public Customer FindById(int id)
         {
-            return _customers;
+            return customers.Single(c => c.CustomerID == id);
         }
 
-        public void UpdateCustomer(Customer SelectedCustomer)
+        public IEnumerable<Customer> FindAll()
         {
-            Customer customerToChange = _customers.Single(c => c.CustomerID == SelectedCustomer.CustomerID);
-            customerToChange = SelectedCustomer;
+            return customers;
+        }
+
+        public IEnumerable<Customer> FindByName(string name)
+        {
+            return customers.FindAll(c => c.FullName == name);
+        }
+
+        public void Add(Customer customer)
+        {
+            customers.Add(customer);
+        }
+
+        public void Update(Customer customer)
+        {
+            var customerForUpdate = FindById(customer.CustomerID);
+            customerForUpdate = customer;
         }
     }
 }

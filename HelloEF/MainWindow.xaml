@@ -31,9 +31,16 @@
                  Text="{Binding Path=CurrentCustomer.FullName, Mode=TwoWay}" />
         <TextBox Height="23" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" Width="219" 
                  Text="{Binding Path=CurrentCustomer.Phone, Mode=TwoWay}" />
-        <Button
+        <StackPanel Grid.Column="0" Grid.Row="4">
+            <Button
+            Command="{Binding AddCustomerCommand}"
+            Content="Add" Height="23" HorizontalAlignment="Right" 
+            Name="AddButton" VerticalAlignment="Top" Width="75" />
+            <Button
             Command="{Binding UpdateCustomerCommand}"
-            Content="Update" Height="23" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="4" 
+            Content="Update" Height="23" HorizontalAlignment="Right" 
             Name="UpdateButton" VerticalAlignment="Top" Width="75" />
+            
+        </StackPanel>
     </Grid>
 </Window>
