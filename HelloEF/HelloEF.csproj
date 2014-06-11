@@ -35,7 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -56,6 +63,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\Customer.cs">
+      <DependentUpon>HelloEFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HelloEFModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelloEFModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HelloEFModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelloEFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HelloEFModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelloEFModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\ICustomerRepository.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
@@ -93,6 +118,24 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Data\HelloEFModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HelloEFModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\HelloEFModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HelloEFModel.Context.cs</LastGenOutput>
+      <DependentUpon>HelloEFModel.edmx</DependentUpon>
+    </None>
+    <None Include="Data\HelloEFModel.edmx.diagram">
+      <DependentUpon>HelloEFModel.edmx</DependentUpon>
+    </None>
+    <None Include="Data\HelloEFModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HelloEFModel.cs</LastGenOutput>
+      <DependentUpon>HelloEFModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -106,7 +149,10 @@
     <Resource Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
+    <Content Include="Data\HelloEFModel.edmx.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

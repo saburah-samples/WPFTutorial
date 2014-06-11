@@ -6,3 +6,6 @@
 LEARN: Using Repository and Unit of Work patterns with Entity Framework 4.0
 	http://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx
 	TODO: implement repository & unit-of-work for work with database
+
+	Использование Code First для создания базы данных
+	http://msdn.microsoft.com/ru-RU/data/jj193542
