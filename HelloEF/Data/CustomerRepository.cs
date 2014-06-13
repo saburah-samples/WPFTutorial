@@ -1,10 +1,11 @@
-﻿using System;
+﻿using HelloEF.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HelloEF.Models
+namespace HelloEF.Data
 {
     public class CustomerRepository : ICustomerRepository
     {
@@ -12,12 +13,17 @@ namespace HelloEF.Models
 
         public CustomerRepository()
         {
-            customers = new List<Customer>
+            //customers = new List<Customer>
+            //{
+            //    new Customer(){ CustomerID = 1, FullName="Dana Birkby", Phone="394-555-0181"},
+            //    new Customer(){ CustomerID = 2, FullName="Adriana Giorgi", Phone="117-555-0119"},
+            //    new Customer(){ CustomerID = 3, FullName="Wei Yu", Phone="798-555-0118"}
+            //};
+            customers = new List<Customer>();
+            using (var db = new HelloEFContext())
             {
-                new Customer(){ CustomerID = 1, FullName="Dana Birkby", Phone="394-555-0181"},
-                new Customer(){ CustomerID = 2, FullName="Adriana Giorgi", Phone="117-555-0119"},
-                new Customer(){ CustomerID = 3, FullName="Wei Yu", Phone="798-555-0118"}
-            };
+                customers = db.Customers.ToList<Customer>();
+            }
         }
 
         public Customer FindById(int id)
@@ -37,7 +43,12 @@ namespace HelloEF.Models
 
         public void Add(Customer customer)
         {
-            customers.Add(customer);
+            var customerForAdd = new Customer()
+            {
+                FullName = customer.FullName,
+                Phone = customer.Phone
+            };
+            customers.Add(customerForAdd);
         }
 
         public void Update(Customer customer)

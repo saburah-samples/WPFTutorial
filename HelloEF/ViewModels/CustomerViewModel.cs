@@ -11,11 +11,11 @@ namespace HelloEF.ViewModels
     {
         private IEnumerable<Customer> _customers;
         private Customer _currentCustomer;
-        private CustomerRepository _repository;
+        private ICustomerRepository _repository;
 
         public CustomerViewModel()
         {
-            _repository = new CustomerRepository(); //TODO: here need instantiate repository
+            _repository = new HelloEF.Data.CustomerRepository(); //TODO: here need instantiate repository
             _customers = _repository.FindAll();
 
             WireCommands();
@@ -23,7 +23,6 @@ namespace HelloEF.ViewModels
 
         private void WireCommands()
         {
-            // TODO: implement AddCustomerCommand
             AddCustomerCommand = new RelayCommand(AddCustomer);
             AddCustomerCommand.IsEnabled = true;
             UpdateCustomerCommand = new RelayCommand(UpdateCustomer);
@@ -68,6 +67,7 @@ namespace HelloEF.ViewModels
         public void AddCustomer()
         {
             _repository.Add(CurrentCustomer);
+            _customers = _repository.FindAll();
         }
 
         public void UpdateCustomer()
