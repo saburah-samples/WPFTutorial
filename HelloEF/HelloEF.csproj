@@ -63,28 +63,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\Customer.cs">
-      <DependentUpon>HelloEFModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\HelloEFModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HelloEFModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\HelloEFModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HelloEFModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\HelloEFModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HelloEFModel.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Data\HelloEFContext.cs" />
     <Compile Include="Models\ICustomerRepository.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\CustomerView.xaml.cs">
+      <DependentUpon>CustomerView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -97,10 +83,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\CustomerRepository.cs" />
+    <Compile Include="Data\CustomerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -118,23 +108,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Data\HelloEFModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HelloEFModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Data\HelloEFModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HelloEFModel.Context.cs</LastGenOutput>
-      <DependentUpon>HelloEFModel.edmx</DependentUpon>
-    </None>
-    <None Include="Data\HelloEFModel.edmx.diagram">
-      <DependentUpon>HelloEFModel.edmx</DependentUpon>
-    </None>
-    <None Include="Data\HelloEFModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HelloEFModel.cs</LastGenOutput>
-      <DependentUpon>HelloEFModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -147,9 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Data\HelloEFModel.edmx.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
